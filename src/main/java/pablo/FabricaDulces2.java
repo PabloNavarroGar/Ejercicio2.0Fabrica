@@ -19,10 +19,11 @@ public class FabricaDulces2 {
         // TODO code application logic here
         //Variables de la opcion a elegir=Calcular
         String opcion;
-        String opcion2;
+        //contiene el menu de los codigos de los productos 
+        String opcion2="";
         //Variables constantes
         //MantecadosLimon y Turronchocolate
-        //Control+R para cmabiar el nombre de una variable y se cambiene en todas
+        //Control+R para cambiar el nombre de una variable y se cambiene en todas
         double costeManoDeObra;
 
         //Polvorones,turron clasico y mazapanes
@@ -36,10 +37,10 @@ public class FabricaDulces2 {
         //PreMenu para calcular o salir
         String menu = """
                         Escriba lo quiere hacer.
-                  --------------------------------------
+                  -----------------------------------------
                        Calcular=="Viabilidad de Productos"
                        Salir== "Salir del programa"
-                  --------------------------------------
+                  -----------------------------------------
                   
                   
                   
@@ -53,6 +54,7 @@ public class FabricaDulces2 {
             //En caso de escribir otra cosa, el programa volverá al menú principal.
             opcion = JOptionPane.showInputDialog(null, menu);
             //Si elegimos calcular ignorando Mayusculas y minusculas
+            //Entramos en un if con el menu
             if (opcion.equalsIgnoreCase("calcular")) {
                 //Si elegimos calcular 
                 //Panel salida de datos
@@ -74,7 +76,7 @@ public class FabricaDulces2 {
                 //bucle del menu de los codigos
                 do {
                     opcion2 = JOptionPane.showInputDialog(null, menu2).toLowerCase();
-
+                    //while con las condiciones de cada codigo
                 } while (!(opcion2.equalsIgnoreCase("M1")
                         || opcion2.equalsIgnoreCase("T1")
                         || opcion2.equalsIgnoreCase("M2")
@@ -83,6 +85,7 @@ public class FabricaDulces2 {
                         || opcion2.equalsIgnoreCase("Salir")));
                 //EL lowerCase en el switch para que en los case puestos en minusculas 
                 //(SI o sSI) tienen que ir en minusculas si se hacen en mayuscula los transforma
+                // a minuscula cuando le introducimos el dato.
                 //Inicio del Switch
                 switch (opcion2.toLowerCase()) {
 
@@ -114,7 +117,8 @@ public class FabricaDulces2 {
                                 JOptionPane.showMessageDialog(null, "El coste de la"
                                         + " mano de obra " + costeManoDeObra);
                                 //! y lo que este entre los parentesis  significa
-                                //que todo lo que no se haga en el parentesis , se repetira
+                                //que todo lo que no se haga segun lo que le introduzca
+                                //en el parentesis , se repetira
                                 //Condicion del bucle
                             } while (!(costeManoDeObra >= 0.5 && costeManoDeObra <= 0.9));
 
@@ -413,8 +417,8 @@ public class FabricaDulces2 {
                 }
 
             }
-            //Escribir para que cuando ponga otra cosa se repita,equalspara que ignore minusculas y mayusuclas
-        } while (!(opcion.equalsIgnoreCase("salir")));
+            //Escribir para que cuando ponga otra cosa que no sea salir, se repita,equalspara que ignore minusculas y mayusuclas
+        } while (!(opcion.equalsIgnoreCase("salir")|| opcion2.equalsIgnoreCase("salir")));
 
     }
 
